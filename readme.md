@@ -4,5 +4,7 @@ to pull data about the title, url, price, and availability of the books listed o
 Dependencies:
 This script requires Beautiful Soup and Requests Libraries to run.
 If you have pip on your machine, please run the following commands:
+    
     pip3 install beautifulsoup4
+    
     pip3 install requests
