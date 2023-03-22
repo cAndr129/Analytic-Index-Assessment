@@ -1,11 +1,5 @@
-# Analytic Index Assessment 
+# The script file that does the actual web scraping
 
-##
-#
-#       This is a web scraping script written in Python3 and using the BeautifulSoup Library. It scrapes the website 'Books to Scrape'
-#       to pull data about the title, url, price, and availability of the books listed on the site and saves them into a CSV file.      
-#       
-##
 
 from bs4 import BeautifulSoup
 import requests
@@ -25,7 +19,6 @@ with open('books.csv','w', encoding= 'utf8',newline= '') as f:
 
     # using a while loop to keep running through the script for every page of data
     while url:
-
         #building the page with the url of the current page
         page = requests.get(url)
         soup = BeautifulSoup(page.content, 'html.parser')
@@ -57,7 +50,7 @@ with open('books.csv','w', encoding= 'utf8',newline= '') as f:
         if not soup.find(class_='next'):
             break
 
-        # if the 'next button is found, we increment the page count up by one and build our new URL to use next loop
+        # if the next button is found, we increment the page count up by one and build our new URL to use next loop
         page_cnt = page_cnt + 1
         url = f"http://books.toscrape.com/catalogue/page-{page_cnt}.html"
 
